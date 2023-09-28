@@ -58,4 +58,8 @@ No need for workarounds or the additional bash script.
 
 ## Sources
 
+* [Terraform Cloud - Managing Variables](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables/managing-variables#workspace-specific-variables)
+* [Terraform Command: Destroy](https://developer.hashicorp.com/terraform/cli/commands/destroy)
+* [Terraform Command: Apply](https://developer.hashicorp.com/terraform/cli/commands/apply)
 * [AWS Environment Variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+* [Terraform Registry - random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
