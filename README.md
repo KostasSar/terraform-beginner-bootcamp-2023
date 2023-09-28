@@ -24,6 +24,14 @@ source ~/.bash_profile
 
 ## Terraform cloud
 
+### Workspace Variables
+
+After migrating the tf state file to Terraform Cloud, the local environment variables are no longer accessible by the worker that will create, destroy or modify any infrastructure. Therefore, these variables must be declared on Terraform Cloud to make them available and avoid failing changes due to invalid / missing credentials.
+
+On Terraform Cloud, after selecting the current workspace, head to the `Variables` section and add your Access Key.
+
+![Terraform Cloud variables screenshot example for Access Key ](image.png)
+
 ### Login Issue Fix
 
 When trying to login to Terraform Cloud I discovered that all the login issues we faced with GitPod in the videos can be solved by pressing `CTRL+c`.
