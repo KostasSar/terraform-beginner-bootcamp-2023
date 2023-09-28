@@ -32,6 +32,23 @@ On Terraform Cloud, after selecting the current workspace, head to the `Variable
 
 ![Terraform Cloud variables screenshot example for Access Key ](image.png)
 
+### Terraform destroy and apply
+
+After the AWS credentials were added in the Terraform Cloud Workspace, I performed a destroy and re-apply to test that everything is in place.
+
+
+```bash
+terraform destroy
+```
+This deleted the S3 bucket that was previously created, as well as the first randomly generated string which is a **managed resource** too.
+
+
+```bash
+terraform apply
+```
+This created a new S3 bucket with a different random suffix included in the name.
+
+
 ### Login Issue Fix
 
 When trying to login to Terraform Cloud I discovered that all the login issues we faced with GitPod in the videos can be solved by pressing `CTRL+c`.
