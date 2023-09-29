@@ -56,6 +56,10 @@ This was stopping the prompts and menus generated and just pointed to a prompt a
 After pasing, I go the **Successful login** message!
 No need for workarounds or the additional bash script.
 
+
+### File structure
+`main.tf`, `variables.tf`, `outputs.tf`. These are the recommended filenames for a minimal module, even if they're empty. `main.tf` should be the primary entrypoint. For a simple module, this may be where all the resources are created. For a complex module, resource creation may be split into multiple files but any nested module calls should be in the main file. variables.tf and outputs.tf should contain the declarations for variables and outputs, respectively.
+
 ## Sources
 
 * [Terraform Cloud - Managing Variables](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables/managing-variables#workspace-specific-variables)
@@ -63,3 +67,4 @@ No need for workarounds or the additional bash script.
 * [Terraform Command: Apply](https://developer.hashicorp.com/terraform/cli/commands/apply)
 * [AWS Environment Variables](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
 * [Terraform Registry - random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
+* [Terraform Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
