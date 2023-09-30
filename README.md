@@ -72,6 +72,16 @@ Add the new import block in a new file called `import.tf`. After specifying the 
 
 *This feature is only available on Terraform version 1.5.0 or later.*
 
+### Terraform modules
+
+Modules should be placed in a new directory named `modules` as per the module structure guide.
+
+#### Module Variables and Outputs
+
+Module variables and outputs declared and used within a module, must also be declared on the root level variables and outputs files respectively.
+- For variables: There is no need to replicate the validation and error steps, just declaring the variable type is enough.
+- For outputs: Output value on the root level, references the module to get its value.
+
 ## Sources
 
 * [Terraform Cloud - Managing Variables](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables/managing-variables#workspace-specific-variables)
