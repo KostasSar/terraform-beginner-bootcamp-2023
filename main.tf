@@ -1,6 +1,5 @@
-resource "aws_s3_bucket" "static_website_bucket" {
-  bucket = var.website_bucket_name
-  tags = {
-    UserUuid = var.user_uuid
-  }
+module "terrahouse" {
+  source = "./modules/terrahouse"
+  user_uuid = var.user_uuid
+  website_bucket_name = var.website_bucket_name
 }
