@@ -82,6 +82,14 @@ Module variables and outputs declared and used within a module, must also be dec
 - For variables: There is no need to replicate the validation and error steps, just declaring the variable type is enough.
 - For outputs: Output value on the root level, references the module to get its value.
 
+### Terraform files and paths
+
+It's possible to reference files and resources in the workspace using variables to avoid hardcoding file paths and making modules more versatile and adaptive.
+Some good examples are:
+* `path.root` is the filesystem path of the root module of the configuration.
+* `terraform.workspace` is the name of the currently selected ***workspace***.
+
+
 ## Sources
 
 * [Terraform Cloud - Managing Variables](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/variables/managing-variables#workspace-specific-variables)
@@ -91,4 +99,4 @@ Module variables and outputs declared and used within a module, must also be dec
 * [Terraform Registry - random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
 * [Terraform Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
 * [Terraform Import](https://developer.hashicorp.com/terraform/language/import)
-
+* [Terraform Filesystem and Workspace Info](https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info)
