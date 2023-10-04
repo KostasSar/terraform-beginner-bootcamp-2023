@@ -21,6 +21,11 @@ Then to apply the changes without reopening the terminal, execute
 source ~/.bash_profile
 ```
 
+### CloudFront Price Class
+
+CloudFront edge locations are grouped into geographic regions. Having content distributed from more edge locations increases the cost but reduces latency.
+Choosing a lower price class will not prevent regions from accessing content but will increase latency depending on the user location and the price class in use.
+
 
 ## Terraform cloud
 
@@ -89,6 +94,10 @@ Some good examples are:
 * `path.root` is the filesystem path of the root module of the configuration.
 * `terraform.workspace` is the name of the currently selected ***workspace***.
 
+### Terraform Data Sources
+
+Data sources allow Terraform to use information defined outside of Terraform, defined by another separate Terraform configuration, or modified by functions.
+
 
 ## Sources
 
@@ -100,3 +109,5 @@ Some good examples are:
 * [Terraform Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
 * [Terraform Import](https://developer.hashicorp.com/terraform/language/import)
 * [Terraform Filesystem and Workspace Info](https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info)
+* [Terraform Data Sources](https://developer.hashicorp.com/terraform/language/data-sources)
+* [AWS CloudFront Price Classes](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html)
