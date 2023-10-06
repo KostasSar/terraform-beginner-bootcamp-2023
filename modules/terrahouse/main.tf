@@ -21,6 +21,7 @@ resource "aws_s3_object" "index_html" {
   bucket = aws_s3_bucket.static_website_bucket.bucket
   key    = "index.html"
   source = var.index_path
+  content_type = "text/html"
 
   etag = filemd5(var.index_path)
 }
@@ -29,6 +30,7 @@ resource "aws_s3_object" "error_html" {
   bucket = aws_s3_bucket.static_website_bucket.bucket
   key    = "error.html"
   source = var.error_path
+  content_type = "text/html"
 
   etag = filemd5(var.error_path)
 }
