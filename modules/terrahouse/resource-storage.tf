@@ -18,30 +18,30 @@ resource "aws_s3_bucket_website_configuration" "static_website_configuration" {
 }
 
 resource "aws_s3_object" "index_html" {
-  bucket = aws_s3_bucket.static_website_bucket.bucket
-  key    = "index.html"
-  source = var.index_path
+  bucket       = aws_s3_bucket.static_website_bucket.bucket
+  key          = "index.html"
+  source       = var.index_path
   content_type = "text/html"
 
   etag = filemd5(var.index_path)
 
   lifecycle {
     replace_triggered_by = [terraform_data.content_version.output]
-    ignore_changes = [etag]
+    ignore_changes       = [etag]
   }
 }
 
 resource "aws_s3_object" "error_html" {
-  bucket = aws_s3_bucket.static_website_bucket.bucket
-  key    = "error.html"
-  source = var.error_path
+  bucket       = aws_s3_bucket.static_website_bucket.bucket
+  key          = "error.html"
+  source       = var.error_path
   content_type = "text/html"
 
   etag = filemd5(var.error_path)
 
   lifecycle {
     replace_triggered_by = [terraform_data.content_version.output]
-    ignore_changes = [etag]
+    ignore_changes       = [etag]
   }
 }
 
@@ -50,16 +50,16 @@ resource "aws_s3_bucket_policy" "static_website_bucket_policy" {
   policy = jsonencode({
     "Version" = "2012-10-17",
     "Statement" = {
-      "Sid" = "AllowCloudFrontServicePrincipalReadOnly",
+      "Sid"    = "AllowCloudFrontServicePrincipalReadOnly",
       "Effect" = "Allow",
       "Principal" = {
         "Service" = "cloudfront.amazonaws.com"
       },
-      "Action" = "s3:GetObject",
+      "Action"   = "s3:GetObject",
       "Resource" = "arn:aws:s3:::${aws_s3_bucket.static_website_bucket.id}/*",
       "Condition" = {
-      "StringEquals" = {
-          "AWS:SourceArn": "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution/${aws_cloudfront_distribution.s3_distribution.id}"
+        "StringEquals" = {
+          "AWS:SourceArn" : "arn:aws:cloudfront::${data.aws_caller_identity.current.account_id}:distribution/${aws_cloudfront_distribution.s3_distribution.id}"
         }
       }
     }

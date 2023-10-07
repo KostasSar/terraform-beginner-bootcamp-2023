@@ -1,5 +1,5 @@
 terraform {
-    cloud {
+  cloud {
     organization = "CloudEniac"
     workspaces {
       name = "terra-house-1"
