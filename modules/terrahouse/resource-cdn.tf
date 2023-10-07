@@ -1,9 +1,9 @@
 resource "aws_cloudfront_origin_access_control" "default" {
-  name   = "OAC ${var.website_bucket_name}"
-  description  = "Origin Access Controls for Static Website Hosting ${var.website_bucket_name}"
+  name                              = "OAC ${var.website_bucket_name}"
+  description                       = "Origin Access Controls for Static Website Hosting ${var.website_bucket_name}"
   origin_access_control_origin_type = "s3"
-  signing_behavior  = "always"
-  signing_protocol  = "sigv4"
+  signing_behavior                  = "always"
+  signing_protocol                  = "sigv4"
 }
 
 locals {
@@ -55,5 +55,19 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   viewer_certificate {
     cloudfront_default_certificate = true
+  }
+}
+
+resource "terraform_data" "invalidate_cache" {
+  triggers_replace = terraform_data.content_version.output
+
+  provisioner "local-exec" {
+    # https://developer.hashicorp.com/terraform/language/expressions/strings#heredoc-strings
+    command = <<COMMAND
+aws cloudfront create-invalidation \
+--distribution-id ${aws_cloudfront_distribution.s3_distribution.id} \
+--paths '/*'
+    COMMAND
+
   }
 }

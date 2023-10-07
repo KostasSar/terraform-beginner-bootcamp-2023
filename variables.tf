@@ -15,5 +15,5 @@ variable "error_path" {
 }
 
 variable "content_version" {
-  type        = number
+  type = number
 }

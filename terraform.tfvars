@@ -5,4 +5,4 @@ website_bucket_name = "terraform-beginner-bootcamp-qasdr50raymr0qu6"
 index_path = "/workspace/terraform-beginner-bootcamp-2023/public/index.html"
 error_path = "/workspace/terraform-beginner-bootcamp-2023/public/error.html"
 
-content_version=2
+content_version = 3
