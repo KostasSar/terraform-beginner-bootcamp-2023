@@ -27,7 +27,7 @@ CloudFront edge locations are grouped into geographic regions. Having content di
 Choosing a lower price class will not prevent regions from accessing content but will increase latency depending on the user location and the price class in use.
 
 
-## Terraform cloud
+## Terraform 
 
 ### Workspace Variables
 
@@ -54,7 +54,7 @@ terraform apply
 This created a new S3 bucket with a different random suffix included in the name.
 
 
-### Login Issue Fix
+### TF Cloud Login Issue Fix
 
 When trying to login to Terraform Cloud I discovered that all the login issues we faced with GitPod in the videos can be solved by pressing `CTRL+c`.
 This was stopping the prompts and menus generated and just pointed to a prompt asking for the token.
@@ -98,6 +98,25 @@ Some good examples are:
 
 Data sources allow Terraform to use information defined outside of Terraform, defined by another separate Terraform configuration, or modified by functions.
 
+### Terraform fmt
+
+The terraform fmt command is used to rewrite Terraform configuration files to a canonical format and style.
+Makes files easy to read and modify.
+
+
+### Terraform for_each
+
+The for_each meta-argument accepts a map or a set of strings, and creates an instance for each item in that map or set. 
+Each instance has a distinct infrastructure object associated with it, and each is separately created, updated, or destroyed when the configuration is applied.
+
+### Image file referencing issues
+
+When testing the first version of a static website with jpg files, there was an issue with finding the correct file path and load the images on the browser.
+To resolve this:
+1. The `content_type = "image/jpeg"` attribute was set for the newly uploaded image assets on the website S3 bucket.
+2. Asset referencing in the `index.html` file was switched from absolute path to relative path.
+
+After changing the content version, thus triggering the cache invalidation, and refreshing the webpage, the images were now included!
 
 ## Sources
 
@@ -111,3 +130,5 @@ Data sources allow Terraform to use information defined outside of Terraform, de
 * [Terraform Filesystem and Workspace Info](https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info)
 * [Terraform Data Sources](https://developer.hashicorp.com/terraform/language/data-sources)
 * [AWS CloudFront Price Classes](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html)
+* [Terraform fmt](https://developer.hashicorp.com/terraform/cli/commands/fmt)
+* [Terraform for_each](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
