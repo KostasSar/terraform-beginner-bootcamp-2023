@@ -7,4 +7,6 @@ module "terrahouse" {
   error_path = "${path.root}/public/error.html"
 
   content_version = var.content_version
+
+  assets_path = var.assets_path
 }
