@@ -1,7 +1,6 @@
 tasks:
   - name: terraform
     before: |
-      cd $PROJECT_ROOT
       sudo apt update && sudo apt install -y gnupg software-properties-common apt-utils
       wget -O- https://apt.releases.hashicorp.com/gpg | \
       gpg --dearmor | \
@@ -16,7 +15,6 @@ tasks:
       sudo apt install -y terraform
   - name: sinatra
     before: | 
-      cd $PROJECT_ROOT
       cd terratowns_mock_server
       bundle install
       bundle exec ruby server.rb 
@@ -24,7 +22,6 @@ tasks:
     env:
       AWS_CLI_AUTO_PROMPT: on-partial
     before: |
-      cd $PROJECT_ROOT
       cd /workspace
       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
       unzip -o awscliv2.zip
@@ -32,7 +29,6 @@ tasks:
       cd $THEIA_WORKSPACE_ROOT
   - name: http-server
     before: |
-      cd $PROJECT_ROOT
       npm install --global http-server
     command: 
       http-server
