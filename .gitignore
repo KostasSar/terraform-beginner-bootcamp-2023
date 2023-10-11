@@ -30,7 +30,7 @@ override.tf.json
 # example: *tfplan*
 
 # Ignore CLI configuration files
-.terraformrc
+#.terraformrc
 terraform.rc
 
 terraform-provider-terratowns/terraform-provider-terratowns_v*
