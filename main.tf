@@ -17,9 +17,11 @@ module "terrahouse" {
 resource "terratowns_home" "home" {
   name = "How to make Espresso"
   description = <<DESCRIPTION
-Espresso is a short coffee drink.
+Espresso is a concentrated coffee made by forcing hot water through finely-ground coffee beans. 
+It has a rich, bold flavor, a creamy crema, and serves as the base for various coffee drinks like cappuccinos and lattes. 
+It's enjoyed for its intense, aromatic qualities.
 DESCRIPTION
   domain_name = module.terrahouse.cloudfront_url
-  town = "missingo"
-  content_version = 1
+  town = "cooker-cove"
+  content_version = 2
 }
