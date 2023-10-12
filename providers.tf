@@ -1,10 +1,10 @@
 terraform {
-  # cloud {
-  #   organization = "CloudEniac"
-  #   workspaces {
-  #     name = "terra-house-1"
-  #   }
-  # }
+  cloud {
+    organization = "CloudEniac"
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
 
   required_providers {
     terratowns = {

@@ -15,6 +15,7 @@ tasks:
       sudo tee /etc/apt/sources.list.d/hashicorp.list
       sudo apt update
       sudo apt install -y terraform
+      source ./bin/build_provider
   - name: sinatra
     before: | 
       cd terratowns_mock_server
