@@ -23,5 +23,5 @@ It's enjoyed for its intense, aromatic qualities.
 DESCRIPTION
   domain_name = module.terrahouse.cloudfront_url
   town = "cooker-cove"
-  content_version = 2
+  content_version = 1
 }
